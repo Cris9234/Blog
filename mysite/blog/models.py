@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# it is used to keep draft and published posts separated when they are rendered out with templates
 STATUS = (
     (0, "Draft"),
     (1, "Publish")
@@ -21,6 +22,8 @@ class Post(models.Model):
     class Meta:
         ordering = ['-created_on']
 
+    # this added method overrides another of Django and has the purpose of representing the instance of the model
+    # with the title
     def __str__(self):
         return self.title
 

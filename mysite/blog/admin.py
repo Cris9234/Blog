@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Post
 
 
+# it is a subclass used to customize the admin app's interface of the model
 class PostAdmin(admin.ModelAdmin):
     # display the properties mentioned in the tuple
     list_display = ('title', 'slug', 'status', 'created_on')
@@ -13,4 +14,5 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+# it makes the model Post available to the admin app with its customizations
 admin.site.register(Post, PostAdmin)
